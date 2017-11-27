@@ -2,7 +2,7 @@
 //  FirstInstructionViewController.m
 //  SMaLL
 //
-//  First screen for present instruction. Including main instruction, and two practice instruction.
+//  First screen for experiment instruction. Including main instruction, and two practice instruction.
 //
 //  Created by Richard Ding on 2016-10-27.
 //  Copyright © 2016 MathLab Carleton University. All rights reserved.
