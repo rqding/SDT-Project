@@ -10,4 +10,12 @@
 
 @interface BreakViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *BreakLabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *NextButton;
+
+- (IBAction)PauseButton:(id)sender;
+
+- (IBAction)PressNextButton:(id)sender;
+
 @end

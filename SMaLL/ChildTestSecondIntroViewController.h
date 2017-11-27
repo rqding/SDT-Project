@@ -10,4 +10,14 @@
 
 @interface ChildTestSecondIntroViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *RightFingerText;
+
+@property (strong, nonatomic) IBOutlet UILabel *LeftFingerText;
+
+@property (strong, nonatomic) IBOutlet UIImageView *GoImage;
+
+@property (strong, nonatomic) IBOutlet UIButton *StartButton;
+
+- (IBAction)PauseButton:(id)sender;
+
 @end
