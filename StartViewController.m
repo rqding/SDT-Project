@@ -34,7 +34,7 @@
     _startButton.hidden = YES;
     
     //set default type
-    modeselected = @"1"; //testing mode 1:Math->Punctuation, testing mode 2:Punctuation->Math, testing mode 3: Child mode
+    modeselected = @"1"; //testing mode 1:adult(math symbol), testing mode 3: Child mode
     firsttesttype = @"S";
     secondtesttype = @"P";
     //read configure file path and update total test round
