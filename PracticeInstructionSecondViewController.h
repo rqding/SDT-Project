@@ -24,6 +24,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *RedButton;
 
+@property (strong, nonatomic) IBOutlet UIImageView *GoImage;
+
 - (IBAction)PauseButton:(id)sender;
 
 @end
