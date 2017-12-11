@@ -20,8 +20,6 @@
     NSString *docsDir;
     NSArray *dirPath;
     NSString *modeselected;
-    NSString *firsttesttype;
-    NSString *secondtesttype;
     NSString *propertypath;
 }
 
@@ -34,18 +32,14 @@
     _startButton.hidden = YES;
     
     //set default type
-    modeselected = @"1"; //testing mode 1:adult(math symbol), testing mode 3: Child mode
-    firsttesttype = @"S";
-    secondtesttype = @"P";
     //read configure file path and update total test round
     NSArray *configurepaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docsPath = [configurepaths objectAtIndex:0];
     propertypath = [[NSString alloc] initWithString:[docsPath stringByAppendingPathComponent:@"configure.plist"]];
     NSMutableDictionary *configDict = [NSMutableDictionary dictionaryWithContentsOfFile:propertypath];
-    //set default testing parameter
-    [configDict setObject:@"2" forKey:@"total_test_round"];
+    //set default testing parameter as default adult mode
     [configDict setObject:@"60" forKey:@"num_of_test"];
-    [configDict setObject:modeselected forKey:@"mode_selected"];
+    [configDict setObject:@"1" forKey:@"mode_selected"]; //testing mode 1:adult(math symbol), testing mode 2: Child mode, default mode is adult mode
     [configDict setObject:@"plain gene skit robe bin plin gean skti vobe bni" forKey:@"practice_list"];
     [configDict writeToFile:propertypath atomically:YES];
     
@@ -63,7 +57,6 @@
         [configDict setObject:@"2" forKey:@"time_limit"];
         [configDict setObject:@"1.5" forKey:@"feedback_time"];
         [configDict setObject:@"0.5" forKey:@"fixpoint_time"];
-        [configDict setObject:@"2" forKey:@"total_test_round"];
         [configDict setObject:@"60" forKey:@"num_of_test"];
         [configDict setObject:@"1" forKey:@"mode_selected"];
         [configDict setObject:@"plain gene skit robe bin plin gean skti vobe bni" forKey:@"practice_list"];
@@ -71,9 +64,8 @@
         
         [configDict setObject:@"To get used to the task, you will start with a practice round in English. The symbols will be letters of the alphabet. You will decide if the letters are arranged in a way that is readable or unreadable." forKey:@"first_practice_intro"];
         
-        [configDict setObject:@"In this TEST round, you will see symbols from the language of mathematics. Remember, your job is to decide if each set of symbols you see are arranged in a way that is readable or unreadable. " forKey:@"math_test_intro"];
+        [configDict setObject:@"In this TEST round, you will see symbols from the language of mathematics. Remember, your job is to decide if each set of symbols you see are arranged in a way that is readable or unreadable. " forKey:@"adult_test_intro"];
         
-        [configDict setObject:@"In this TEST round, you will see symbols from the English language. The symbols will include letters of alphabet and punctuation. Remember, your job is to decide if each set of symbols you see are arranged in a way that is readable or unreadable. " forKey:@"punctuation_test_intro"];
         [configDict writeToFile:propertypath atomically:YES];
     }
     
@@ -82,6 +74,7 @@
      2. experiment result table to store the trial data, participant data, and other result data.
      3. trial list table to store the trial list.
      */
+    
     //Build the path for keep database
     _databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"small.db"]];
     
@@ -93,22 +86,16 @@
         if(sqlite3_open(dbpath, &_SMALLDB) == SQLITE_OK){
             char * errorMessage;
             // creaet paticipant info table
-            const char *sql_statement1= "CREATE TABLE IF NOT EXISTS paticipantdata (ID INTEGER PRIMARY KEY AUTOINCREMENT, PID TEXT, TESTMODE TEXT, FIRSTTEST TEXT, SECONDTEST TEXT);";
+            const char *sql_statement1= "CREATE TABLE IF NOT EXISTS paticipantdata (ID INTEGER PRIMARY KEY AUTOINCREMENT, PID TEXT, TESTMODE TEXT);";
             if(sqlite3_exec(_SMALLDB, sql_statement1, NULL, NULL, &errorMessage)!=SQLITE_OK){
                 [self showUIAlerWithMessage:@"Failed to create the table for paticipant" andTitle:@"Error"];
             }
             //create trial data table
-            const char *sql_statement2= "CREATE TABLE IF NOT EXISTS resultdata (ID INTEGER PRIMARY KEY AUTOINCREMENT,trialcount INTEGER, date TEXT, pid TEXT,testmode TEXT, testtype TEXT, trialnumber INTEGER, trialcode INTEGER, pictureid TEXT, response INTEGER, correct INTEGER, reactiontime TEXT);";
+            const char *sql_statement2= "CREATE TABLE IF NOT EXISTS resultdata (ID INTEGER PRIMARY KEY AUTOINCREMENT,trialcount INTEGER, date TEXT, pid TEXT,testmode TEXT, trialnumber INTEGER, trialcode INTEGER, pictureid TEXT, response INTEGER, correct INTEGER, reactiontime TEXT);";
             
             if(sqlite3_exec(_SMALLDB, sql_statement2, NULL, NULL, &errorMessage)!=SQLITE_OK){
                 [self showUIAlerWithMessage:@"Failed to create the table for result data" andTitle:@"Error"];
             }
-            
-//            //create trial list table
-//            const char *sql_statement3= "CREATE TABLE IF NOT EXISTS trialdata (ID INTEGER PRIMARY KEY AUTOINCREMENT, number INTEGER, dots INTEGER, match INTEGER, distance INTEGER);";
-//            if(sqlite3_exec(_SMALLDB, sql_statement3, NULL, NULL, &errorMessage)!=SQLITE_OK){
-//                [self showUIAlerWithMessage:@"Failed to create the table of testing trials" andTitle:@"Error"];
-//            }
             
             //close database
             sqlite3_close(_SMALLDB);
@@ -159,7 +146,7 @@
 
 - (IBAction)PressStartButton:(id)sender {
     // start introduction view
-    if ([modeselected isEqual:@"3"]) {
+    if ([modeselected isEqual:@"2"]) {
         [self performSegueWithIdentifier:@"ChildIntroViewSegue" sender:self];
     } else {
         [self performSegueWithIdentifier:@"AdultIntroViewSegue" sender:self];
@@ -177,7 +164,7 @@
         
         if(sqlite3_open(dbpath, &_SMALLDB)==SQLITE_OK){
             
-            NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paticipantdata (pid, testmode, firsttest, secondtest) VALUES (\"%@\", \"%@\",\"%@\", \"%@\")", _subjectIDTextField.text, modeselected, firsttesttype, secondtesttype];
+            NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO paticipantdata (pid, testmode) VALUES (\"%@\", \"%@\")", _subjectIDTextField.text, modeselected];
             const char *insert_statment =[insertSQL UTF8String];
             sqlite3_prepare_v2(_SMALLDB, insert_statment, -1, &statment, NULL);
             
@@ -215,31 +202,21 @@
     
     //set test type segment selection
     if (_typeSegment.selectedSegmentIndex == 0 ) {
-        //test mode record as 1 and set test type for two rounds
+        //test mode is adult mode
         modeselected = @"1";
-        firsttesttype = @"S";
-        secondtesttype = @"P";
+        [configDict setObject:@"60" forKey:@"num_of_test"];
+        [configDict setObject:modeselected forKey:@"mode_selected"];
+        [configDict setObject:@"plain gene skit robe bin plin gean skti vobe bni" forKey:@"practice_list"];
+        [configDict writeToFile:propertypath atomically:YES];
         
     } else if (_typeSegment.selectedSegmentIndex == 1 ) {
-        //test mode record as 2 and set test type for two rounds
+        //test mode is child mode set configure file
         modeselected= @"2";
-        firsttesttype = @"P";
-        secondtesttype = @"S";
-        
-    } else if (_typeSegment.selectedSegmentIndex == 2 ) {
-        //test mode record as 3 and set test type for one round
-        modeselected= @"3";
-        firsttesttype = @"C";
-        secondtesttype = @"";
-        //set testing parameter
-        [configDict setObject:@"1" forKey:@"total_test_round"];
         [configDict setObject:@"42" forKey:@"num_of_test"];
         [configDict setObject:modeselected forKey:@"mode_selected"];
         [configDict setObject:@"the hte cat cta fly lyf" forKey:@"practice_list"];
         [configDict writeToFile:propertypath atomically:YES];
-        
     }
-    
 }
 
 

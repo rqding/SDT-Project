@@ -133,11 +133,10 @@
 - (IBAction)StartTestRoundButton:(id)sender {
     //set test round value in configure file
     NSMutableDictionary *configDict = [NSMutableDictionary dictionaryWithContentsOfFile:propertypath];
-    [configDict setObject:@"1" forKey:@"current_round"];
     [configDict writeToFile:propertypath atomically:YES];
     
     // start test introduction view base on mode selected
-    if ([testmode isEqual:@"3"]) {
+    if ([testmode isEqual:@"2"]) {
         [self performSegueWithIdentifier:@"ChildTestIntroViewSegue" sender:self];
     } else {
         [self performSegueWithIdentifier:@"AdultTestIntroViewSegue" sender:self];
@@ -185,8 +184,8 @@
 
 -(void)responsefeedback {
     [self clearButtonText];
-    // if test mode selected is not child mode
-    if (![testmode isEqual:@"3"]) {;
+    // if test mode selected is not child mode provide user response feedback
+    if (![testmode isEqual:@"2"]) {;
         if ([buttonpressed isEqual:@"Y"]) {
             _ResponseLabel.text = YesResponseText;
             _ResponseLabel.textColor = [UIColor greenColor];
@@ -197,6 +196,7 @@
             _ResponseLabel.hidden = NO;
         }
     } else {
+        // if test mode selected is child mode. Provide correct or incorrect feedback.
         if ([practiceresult isEqualToString:buttonpressed]) {
             //Correct response
             _CorrectLabel.hidden = NO;

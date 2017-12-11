@@ -22,15 +22,12 @@
     NSString *firsttesttype;
     NSString *secondtesttype;
     NSString *testtype;
-    int testround;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _NextFunctionButton.hidden = YES;
-    
-    NSString *subtitle = _SubtitleLabel.text;
     
     // Get the dirctory
     NSArray *dirPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -40,7 +37,7 @@
     NSString *propertypath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"configure.plist"]];
     NSMutableDictionary *configDict = [NSMutableDictionary dictionaryWithContentsOfFile:propertypath];
     
-    testround = [[configDict objectForKey:@"current_round"] intValue];
+    //testround = [[configDict objectForKey:@"current_round"] intValue];
     
     //get paticipant info from paticipant table
     _databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:@"small.db"]];
@@ -59,8 +56,6 @@
                 
                 PID = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 1)];
                 testmode = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 2)];
-                firsttesttype = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 3)];
-                secondtesttype = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 4)];
                 
             }// end of while
             sqlite3_finalize(statment);
@@ -72,31 +67,8 @@
         }
     } //end of if
     
-    //base on test round to setup intro label
-    if (testround == 1) {
-        testtype = firsttesttype;
-
-    } else if (testround == 2) {
-        testtype = secondtesttype;
-    }
-    
-    NSString *testIntro = nil;
-    if ([testtype isEqual: @"S"])
-    {
-        testIntro = @"math_test_intro";
-    } else if ([testtype isEqual: @"P"]) {
-        testIntro = @"punctuation_test_intro";
-        subtitle = [subtitle stringByReplacingOccurrencesOfString:@"math" withString:@"punctuation"];
-    } else {
-        // Test intro for children math information. TO DO: UPDATE INTRO!!
-        testIntro = @"math_test_intro";
-        subtitle = [subtitle stringByReplacingOccurrencesOfString:@"math" withString:@"child math"];
-    }
-    
-    _SubtitleLabel.text = subtitle;
-    
     //update font color for first paragraph
-    NSString *introtext = [configDict objectForKey:testIntro];
+    NSString *introtext = [configDict objectForKey:@"adult_test_intro"];
     NSMutableAttributedString *introstring = [self addColorAttributeToString:introtext size:22.0f];
     [_FirstParagraphText setAttributedText:introstring];
     

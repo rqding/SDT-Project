@@ -37,8 +37,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *ExitButton;
 
-@property (strong, nonatomic) IBOutlet UIButton *NextButton;
-
 - (IBAction)PressYesButton:(id)sender;
 
 - (IBAction)PressNoButton:(id)sender;

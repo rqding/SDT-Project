@@ -24,7 +24,6 @@
 		23473F7C1DC2998E00D42EA0 /* TestInstructionFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23473F7B1DC2998E00D42EA0 /* TestInstructionFirstViewController.m */; };
 		23473F7F1DC299A300D42EA0 /* TestInstructionSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23473F7E1DC299A300D42EA0 /* TestInstructionSecondViewController.m */; };
 		23473F811DC29BE900D42EA0 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 23473F801DC29BE900D42EA0 /* libsqlite3.0.tbd */; };
-		23473F841DCC084B00D42EA0 /* BreakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23473F831DCC084B00D42EA0 /* BreakViewController.m */; };
 		236617241F2EB9CF00E8356E /* C-item-1-Y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236616FA1F2EB9CF00E8356E /* C-item-1-Y.jpg */; };
 		236617251F2EB9CF00E8356E /* C-item-2-N.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236616FB1F2EB9CF00E8356E /* C-item-2-N.jpg */; };
 		236617261F2EB9CF00E8356E /* C-item-3-Y.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 236616FC1F2EB9CF00E8356E /* C-item-3-Y.jpg */; };
@@ -247,8 +246,6 @@
 		23473F7D1DC299A300D42EA0 /* TestInstructionSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestInstructionSecondViewController.h; path = ../TestInstructionSecondViewController.h; sourceTree = "<group>"; };
 		23473F7E1DC299A300D42EA0 /* TestInstructionSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestInstructionSecondViewController.m; path = ../TestInstructionSecondViewController.m; sourceTree = "<group>"; };
 		23473F801DC29BE900D42EA0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		23473F821DCC084B00D42EA0 /* BreakViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakViewController.h; path = ../BreakViewController.h; sourceTree = "<group>"; };
-		23473F831DCC084B00D42EA0 /* BreakViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BreakViewController.m; path = ../BreakViewController.m; sourceTree = "<group>"; };
 		236616FA1F2EB9CF00E8356E /* C-item-1-Y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "C-item-1-Y.jpg"; sourceTree = "<group>"; };
 		236616FB1F2EB9CF00E8356E /* C-item-2-N.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "C-item-2-N.jpg"; sourceTree = "<group>"; };
 		236616FC1F2EB9CF00E8356E /* C-item-3-Y.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "C-item-3-Y.jpg"; sourceTree = "<group>"; };
@@ -662,8 +659,6 @@
 				23473F7E1DC299A300D42EA0 /* TestInstructionSecondViewController.m */,
 				23473F711DC2974100D42EA0 /* TestViewController.h */,
 				23473F721DC2974100D42EA0 /* TestViewController.m */,
-				23473F821DCC084B00D42EA0 /* BreakViewController.h */,
-				23473F831DCC084B00D42EA0 /* BreakViewController.m */,
 				23AA4F091F13252E00CB0C63 /* Main.storyboard */,
 				230935A11DBC4148004C362E /* Assets.xcassets */,
 				230935A31DBC4148004C362E /* LaunchScreen.storyboard */,
@@ -999,7 +994,6 @@
 				230935971DBC4148004C362E /* AppDelegate.m in Sources */,
 				23473F7F1DC299A300D42EA0 /* TestInstructionSecondViewController.m in Sources */,
 				23473F611DC24B9400D42EA0 /* StartViewController.m in Sources */,
-				23473F841DCC084B00D42EA0 /* BreakViewController.m in Sources */,
 				230935941DBC4148004C362E /* main.m in Sources */,
 				230935A01DBC4148004C362E /* SMaLL.xcdatamodeld in Sources */,
 				23473F7C1DC2998E00D42EA0 /* TestInstructionFirstViewController.m in Sources */,

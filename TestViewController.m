@@ -24,8 +24,6 @@
     int loopcount;
     int correct;
     int testid;
-    int testround;
-    int totaltestround;
     int numoftest;
     NSArray *paths;
     NSString *docsPath;
@@ -36,13 +34,10 @@
     NSString *unreadable;
     NSString *picturename;
     NSString *trialresult;
-    
+    NSString *testtypestring;
     NSString *PID;
     NSString *groupID;
     NSString *testmode;
-    NSString *testtype;
-    NSString *firsttesttype;
-    NSString *secondtesttype;
     NSString *reactiontime;
     NSString *currentdate;
     
@@ -67,7 +62,6 @@
     _TrialImage.hidden = YES;
     _FinishButton.hidden = YES;
     _ExitButton.hidden = YES;
-    _NextButton.hidden = YES;
     //disable the pause button
     _PauseButton.enabled = NO;
     
@@ -91,8 +85,6 @@
     feedback_timelimit = [[configDict objectForKey:@"feedback_time"] doubleValue];
     fixpoint_timelimit = [[configDict objectForKey:@"fixpoint_time"] doubleValue];
     numoftest = [[configDict objectForKey:@"num_of_test"] intValue];
-    testround = [[configDict objectForKey:@"current_round"] intValue];
-    totaltestround = [[configDict objectForKey:@"total_test_round"] intValue];
     
     //get paticipant info from paticipant table
     _databasePath = [[NSString alloc] initWithString:[docsPath stringByAppendingPathComponent:@"small.db"]];
@@ -111,8 +103,6 @@
                 
                 PID = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 1)];
                 testmode = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 2)];
-                firsttesttype = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 3)];
-                secondtesttype = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 4)];
                 
             }// end of while
             sqlite3_finalize(statment);
@@ -124,8 +114,17 @@
         }
     } //end of if
     
+    //setup test type string
+    if ([testmode isEqual:@"1"]) {
+        //adult mode
+        testtypestring = @"S";
+    } else if ([testmode isEqual:@"2"]) {
+        //child mode
+        testtypestring = @"C";
+    }
+    
     //resize the image if it is child mode
-    if ([testmode isEqual:@"3"]) {
+    if ([testmode isEqual:@"2"]) {
         NSLog(@"Rezie the IMAGE");
         float width = _TrialImage.frame.size.width*3;
         float height = _TrialImage.frame.size.height*3;
@@ -135,18 +134,9 @@
     
     }
     
-    //if break view passed value, this is the second round
-    if (testround == 1 )
-    {
-        testtype = firsttesttype;
-        
-    } else if (testround == 2){
-        testtype = secondtesttype;
-    }
-    
     //generate test object loop
     testArray = [self generatePracticeTrial:numoftest];
-    //start practice loop
+    //start test loop
     [self testLoop];
     
 }
@@ -218,7 +208,7 @@
     
     //write trialdatatable to csv file
     
-    NSString *csv = @"index,trialcount,date,subjectID,testmode,testtype,stimulusnum,trialcode,pictureID,responseButton,correct,reactiontime\n";
+    NSString *csv = @"index,trialcount,date,subjectID,testmode,stimulusnum,trialcode,pictureID,responseButton,correct,reactiontime\n";
     
     NSString *testfile = [docsPath stringByAppendingPathComponent:@"smalloutput.csv"];
     NSError *error;
@@ -239,15 +229,14 @@
                 NSString *testdate = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 2)];
                 NSString *pid = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 3)];
                 NSString *mode = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 4)];
-                NSString *type = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 5)];
-                NSInteger stimulusno = sqlite3_column_int(statment, 6);
-                NSInteger code = sqlite3_column_int(statment, 7);
-                NSString *picid = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 8)];
-                NSInteger button = sqlite3_column_int(statment, 9);
-                NSInteger result = sqlite3_column_int(statment, 10);
-                NSString *reaction = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 11)];
+                NSInteger stimulusno = sqlite3_column_int(statment, 5);
+                NSInteger code = sqlite3_column_int(statment, 6);
+                NSString *picid = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 7)];
+                NSInteger button = sqlite3_column_int(statment, 8);
+                NSInteger result = sqlite3_column_int(statment, 9);
+                NSString *reaction = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 10)];
                 
-                csv = [csv stringByAppendingFormat:@"%ld,%ld,%@,%@,%@,%@,%ld,%ld,%@,%ld,%ld,%@\n", (long)dataid, (long)trialcount,testdate, pid, mode, type, (long)stimulusno, (long)code, picid, (long)button, (long)result, reaction];
+                csv = [csv stringByAppendingFormat:@"%ld,%ld,%@,%@,%@,%ld,%ld,%@,%ld,%ld,%@\n", (long)dataid, (long)trialcount,testdate, pid, mode, (long)stimulusno, (long)code, picid, (long)button, (long)result, reaction];
             } //end of while
             sqlite3_finalize(statment);
             sqlite3_close(_SMALLDB);
@@ -283,7 +272,7 @@
         if (buttonIndex ==1)
             _FinishButton.hidden = NO;
         if (buttonIndex ==0){
-            //redo the same trial
+            //if press cancel redo the same trial
             loopcount--;
             [self testLoop];
         }
@@ -302,8 +291,8 @@
         testid = [testtrial.trialid intValue];
         //check image name exists
         
-        NSString *imageNameYes = [NSString stringWithFormat:@"%@-item-%d-%@", testtype, testid, readable];
-        NSString *imageNameNo = [NSString stringWithFormat:@"%@-item-%d-%@", testtype, testid, unreadable];
+        NSString *imageNameYes = [NSString stringWithFormat:@"%@-item-%d-%@", testtypestring, testid, readable];
+        NSString *imageNameNo = [NSString stringWithFormat:@"%@-item-%d-%@", testtypestring, testid, unreadable];
         
         NSString *imagefileyes = [[NSBundle mainBundle] pathForResource:imageNameYes ofType:@"jpg"];
         NSString *imagefileno = [[NSBundle mainBundle] pathForResource:imageNameNo ofType:@"jpg"];
@@ -320,7 +309,7 @@
             //set trial image
             _TrialImage.image = [UIImage imageWithContentsOfFile:imagefileno];
         } else {
-            NSLog(@"Unable fine item %d", testid);
+            NSLog(@"Unable find item %d", testid);
         }
         picturename = testtrial.trialstring;
         trialresult = testtrial.trialresult;
@@ -329,21 +318,10 @@
     } else {
         //After test round finish, release memory
         [testArray removeAllObjects];
-        if (testround >= totaltestround ) {
-            //finish test loop show finish button
-            _FinishButton.hidden = NO;
-            //remove the current test round key from plist
-            NSMutableDictionary *configDict = [NSMutableDictionary dictionaryWithContentsOfFile:propertypath];
-            [configDict removeObjectForKey:@"current_round"];
-            [configDict writeToFile:propertypath atomically:YES];
-            
-        } else {
-            //ready to start next round
-            _NextButton.hidden = NO;
-        }
+        //finish test loop show finish button
+        _FinishButton.hidden = NO;
     }
 }
-
 
 
 -(void)showfixpoint{
@@ -385,6 +363,7 @@
 -(NSMutableArray *) generatePracticeTrial:(int)numtest {
     NSMutableArray *triallist;
     triallist = [[NSMutableArray alloc]init];
+    
     //Initially create trial list
     for (int i=1; i<=numtest; i++){
         TrialObject *testtrial = [[TrialObject alloc] init];
@@ -413,15 +392,6 @@
     } else {
         trialcode = 0;
     }
-    //convert s type to 1, and p type to 2 in database
-    NSString *type;
-    if ([testtype isEqual:@"S"]) {
-        type = @"1";
-    } else if ([testtype isEqual:@"P"]){
-        type = @"2";
-    } else {
-        type = @"3";
-    }
     
     if (button == trialcode) {
         correct = 1; //correct response
@@ -438,7 +408,7 @@
     //insert to database
     if(sqlite3_open(dbpath, &_SMALLDB)==SQLITE_OK){
         
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO resultdata (trialcount, date, pid, testmode, testtype, trialnumber, trialcode, pictureid, response, correct, reactiontime) VALUES (\"%d\",\"%@\", \"%@\",\"%@\", \"%@\", \"%d\", \"%d\",\"%@\", \"%d\", \"%d\", \"%@\")", loopcount, currentdate, PID, testmode,type, testid, trialcode, picturename, button, correct, reactiontime];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO resultdata (trialcount, date, pid, testmode, trialnumber, trialcode, pictureid, response, correct, reactiontime) VALUES (\"%d\",\"%@\", \"%@\",\"%@\", \"%d\", \"%d\",\"%@\", \"%d\", \"%d\", \"%@\")", loopcount, currentdate, PID, testmode, testid, trialcode, picturename, button, correct, reactiontime];
         
         const char *insert_statment =[insertSQL UTF8String];
         
@@ -454,7 +424,6 @@
         sqlite3_close(_SMALLDB);
     }// end of insert data
     trialobject = nil;
-    //_TrialImage.image = nil;
 }
 
 

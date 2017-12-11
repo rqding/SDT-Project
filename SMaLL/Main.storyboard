@@ -109,8 +109,7 @@
                                 <rect key="frame" x="489" y="321" width="200" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
-                                    <segment title="S-&gt;P"/>
-                                    <segment title="P-&gt;S"/>
+                                    <segment title="Adult"/>
                                     <segment title="Child"/>
                                 </segments>
                                 <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -913,13 +912,6 @@ To get ready for the task…
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glc-h5-lOF">
-                                <rect key="frame" x="135" y="159" width="760" height="130"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Now you’re ready to look at some math symbols.                                                          Your job is to decide if the math symbols are arranged in a readable or unreadable way.                                                                                                                Be as QUICK and as ACCURATE as you can!</string>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stopsign" translatesAutoresizingMaskIntoConstraints="NO" id="wdt-bS-2LL">
                                 <rect key="frame" x="221" y="430" width="60" height="60"/>
                             </imageView>
@@ -967,6 +959,13 @@ To get ready for the task…
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="x-mark-button-md" translatesAutoresizingMaskIntoConstraints="NO" id="FtQ-fw-Hsh">
                                 <rect key="frame" x="305" y="361" width="30" height="30"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glc-h5-lOF">
+                                <rect key="frame" x="136" y="159" width="753" height="88"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Now you’re ready to look at some math symbols.                                                          Your job is to decide if the math symbols are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!</string>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1413,44 +1412,6 @@ To get ready for the task…</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-Go-3rY">
-                                <rect key="frame" x="447" y="415" width="130" height="65"/>
-                                <color key="backgroundColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="FINISH">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="PressFinishButton:" destination="3Sw-0i-yFH" eventType="touchUpInside" id="GAG-wX-8ze"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Uq-1b-PwC">
-                                <rect key="frame" x="447" y="417" width="130" height="65"/>
-                                <color key="backgroundColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="v7y-a2-y5X" kind="presentation" id="qWT-uR-xor"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GJ-b4-nQ6">
                                 <rect key="frame" x="447" y="417" width="130" height="65"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1470,8 +1431,27 @@ To get ready for the task…</string>
                                     <action selector="PressExitButton:" destination="3Sw-0i-yFH" eventType="touchUpInside" id="Kaj-w3-Wxr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-Go-3rY">
+                                <rect key="frame" x="447" y="417" width="130" height="65"/>
+                                <color key="backgroundColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="FINISH">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="PressFinishButton:" destination="3Sw-0i-yFH" eventType="touchUpInside" id="GAG-wX-8ze"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-dM-0wW">
-                                <rect key="frame" x="337" y="155" width="350" height="350"/>
+                                <rect key="frame" x="337" y="166" width="350" height="350"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1483,7 +1463,6 @@ To get ready for the task…</string>
                         <outlet property="ExitButton" destination="3GJ-b4-nQ6" id="0Y0-yT-qw3"/>
                         <outlet property="FinishButton" destination="vM8-Go-3rY" id="KwC-FC-ie6"/>
                         <outlet property="FixpointLabel" destination="u1R-ES-D7X" id="32r-Zv-5Fa"/>
-                        <outlet property="NextButton" destination="3Uq-1b-PwC" id="92x-ov-52X"/>
                         <outlet property="NoButton" destination="oWA-6W-eIf" id="7ar-Xa-0I5"/>
                         <outlet property="PauseButton" destination="dxE-0T-Qcj" id="xDq-vQ-RHr"/>
                         <outlet property="TrialImage" destination="rzt-dM-0wW" id="se7-Dn-EgL"/>
@@ -1493,77 +1472,6 @@ To get ready for the task…</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chY-hU-G6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8146" y="306"/>
-        </scene>
-        <!--Break View Controller-->
-        <scene sceneID="ty6-xL-NjG">
-            <objects>
-                <viewController id="v7y-a2-y5X" customClass="BreakViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vyX-4E-Hkt"/>
-                        <viewControllerLayoutGuide type="bottom" id="Re2-OF-BAy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gLH-n4-oro">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLs-8a-V1D">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
-                                <color key="barTintColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="SDT" id="cXY-e9-eAZ">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="b5p-sB-GAa">
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="PauseButton:" destination="v7y-a2-y5X" id="O9f-no-IlD"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hG-NT-ha2">
-                                <rect key="frame" x="447" y="494" width="130" height="65"/>
-                                <color key="backgroundColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="PressNextButton:" destination="v7y-a2-y5X" eventType="touchUpInside" id="JTi-Je-t90"/>
-                                    <segue destination="BCe-KB-6lU" kind="presentation" identifier="passTestRound" id="kPC-cg-JGy"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Take a Break. If you are ready for the next part of Test, you could press the NEXT button." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehJ-cb-8mS">
-                                <rect key="frame" x="194" y="252" width="636" height="82"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
-                    <connections>
-                        <outlet property="BreakLabel" destination="ehJ-cb-8mS" id="iNQ-ZE-aKo"/>
-                        <outlet property="NextButton" destination="6hG-NT-ha2" id="Iib-ZB-2N6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Py6-PC-sVt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9388" y="306"/>
         </scene>
     </scenes>
     <resources>
@@ -1575,8 +1483,7 @@ To get ready for the task…</string>
         <image name="x-mark-button-md" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kPC-cg-JGy"/>
-        <segue reference="H2n-Ei-3ka"/>
         <segue reference="vC3-6B-hQr"/>
+        <segue reference="H2n-Ei-3ka"/>
     </inferredMetricsTieBreakers>
 </document>
