@@ -22,6 +22,7 @@
     _NextFunctionButton.hidden = YES;
     _GreenButton.hidden = NO;
     _RedButton.hidden = NO;
+    _GoImage.hidden = NO;
     
     //update font color for first paragraph
     NSString *introtext = _FirstParagraphText.text;
@@ -62,6 +63,7 @@
 */
 
 -(void)showNextButton {
+    _GoImage.hidden = YES;
     _NextFunctionButton.hidden = NO;
 }
 

@@ -30,6 +30,7 @@
     _saveButton.hidden = NO;
     _resetButton.hidden = NO;
     _startButton.hidden = YES;
+    modeselected = @"1";
     
     //set default type
     //read configure file path and update total test round

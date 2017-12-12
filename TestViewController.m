@@ -122,13 +122,12 @@
         //child mode
         testtypestring = @"C";
     }
+    NSLog(@"test mode set as %@", testmode);
     
     //resize the image if it is child mode
     if ([testmode isEqual:@"2"]) {
-        NSLog(@"Rezie the IMAGE");
         float width = _TrialImage.frame.size.width*3;
         float height = _TrialImage.frame.size.height*3;
-        NSLog(@"SIZE WIDTH : %f AND HIEGHT: %f", width, height);
         _TrialImage.frame = CGRectMake(_TrialImage.frame.origin.x, _TrialImage.frame.origin.y, width, height);
         _TrialImage.contentMode = UIViewContentModeScaleAspectFit;
     

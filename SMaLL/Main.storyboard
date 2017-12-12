@@ -1303,16 +1303,6 @@ To get ready for the task…
                                     <constraint firstAttribute="height" constant="150" id="qaq-zm-vkp"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-HB-NR9">
-                                <rect key="frame" x="312" y="249" width="400" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="F83-5n-qo7"/>
-                                    <constraint firstAttribute="height" constant="75" id="v89-az-suF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thinkingface" translatesAutoresizingMaskIntoConstraints="NO" id="6ve-yp-DsS">
                                 <rect key="frame" x="437" y="309" width="150" height="150"/>
                                 <constraints>
@@ -1341,6 +1331,16 @@ To get ready for the task…
                                     <action selector="PressYesButton:" destination="1Sg-MI-vxL" eventType="touchUpInside" id="up9-gh-RZ0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-HB-NR9">
+                                <rect key="frame" x="312" y="306.5" width="400" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="F83-5n-qo7"/>
+                                    <constraint firstAttribute="height" constant="75" id="v89-az-suF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1356,6 +1356,7 @@ To get ready for the task…
                             <constraint firstItem="PA1-cq-o4t" firstAttribute="centerY" secondItem="jh2-Zl-bbo" secondAttribute="centerY" id="KNH-ZH-HuD"/>
                             <constraint firstItem="rng-k5-aJ8" firstAttribute="centerX" secondItem="jh2-Zl-bbo" secondAttribute="centerX" id="Q2s-GY-DVd"/>
                             <constraint firstItem="R8B-63-r4a" firstAttribute="centerX" secondItem="jh2-Zl-bbo" secondAttribute="centerX" id="Qpe-xD-qwS"/>
+                            <constraint firstItem="Jyg-HB-NR9" firstAttribute="centerY" secondItem="jh2-Zl-bbo" secondAttribute="centerY" constant="-40" id="Reo-hw-n7c"/>
                             <constraint firstItem="8oQ-dr-Aph" firstAttribute="bottom" secondItem="fAa-DL-f3x" secondAttribute="bottom" id="S0e-gg-5WB"/>
                             <constraint firstItem="8oQ-dr-Aph" firstAttribute="centerX" secondItem="jh2-Zl-bbo" secondAttribute="centerX" constant="300" id="TL3-Kf-Eb9"/>
                             <constraint firstItem="PA1-cq-o4t" firstAttribute="centerX" secondItem="jh2-Zl-bbo" secondAttribute="centerX" id="W3l-Wk-E3j"/>
@@ -1376,6 +1377,7 @@ To get ready for the task…
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="FCw-n5-K46"/>
                                 <exclude reference="wDc-rR-hZC"/>
                                 <exclude reference="ufr-If-vPs"/>
                                 <exclude reference="waV-V4-ei5"/>
@@ -2196,6 +2198,7 @@ To get ready for the task…</string>
                     <connections>
                         <outlet property="FirstParagraphText" destination="UHG-XY-WoP" id="9Cx-b4-iI0"/>
                         <outlet property="FirstpointLabel" destination="fxw-j7-noZ" id="KrG-Jy-0Sr"/>
+                        <outlet property="GoImage" destination="jom-2l-Xcz" id="2yz-aS-zhU"/>
                         <outlet property="GreenButton" destination="YOs-bM-gbo" id="fR2-eD-SKU"/>
                         <outlet property="NextFunctionButton" destination="RbR-Nm-WhQ" id="AWK-d7-O5n"/>
                         <outlet property="RedButton" destination="pzb-zg-hv1" id="ttE-Nr-9fZ"/>
@@ -2369,6 +2372,6 @@ To get ready for the task…</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vC3-6B-hQr"/>
-        <segue reference="H2n-Ei-3ka"/>
+        <segue reference="rdS-9i-j63"/>
     </inferredMetricsTieBreakers>
 </document>
