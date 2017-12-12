@@ -212,7 +212,7 @@
     } else if (_typeSegment.selectedSegmentIndex == 1 ) {
         //test mode is child mode set configure file
         modeselected= @"2";
-        [configDict setObject:@"42" forKey:@"num_of_test"];
+        [configDict setObject:@"44" forKey:@"num_of_test"];
         [configDict setObject:modeselected forKey:@"mode_selected"];
         [configDict setObject:@"the hte cat cta fly lyf" forKey:@"practice_list"];
         [configDict writeToFile:propertypath atomically:YES];
