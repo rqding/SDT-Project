@@ -32,6 +32,7 @@
     NSString *testmode;
     NSString *YesResponseText;
     NSString *NoResponseText;
+    NSString *practicestring;
     
 }
 
@@ -74,7 +75,11 @@
     feedback_timelimit = [[configDict objectForKey:@"feedback_time"] doubleValue];
     fixpoint_timelimit = [[configDict objectForKey:@"fixpoint_time"] doubleValue];
     testmode = [configDict objectForKey:@"mode_selected"];
-    NSString *practicestring = [configDict objectForKey:@"practice_list"];
+    // testmode 1 is adult mode, testmode 2 is child mode
+    if ([testmode isEqual:@"1"])
+        practicestring = [configDict objectForKey:@"adult_practice_list"];
+    else if ([testmode isEqual:@"2"])
+        practicestring = [configDict objectForKey:@"child_practice_list"];
     practiceArray = [self generatePracticeTrial:practicestring];
     //start practice loop
     [self practiceLoop];

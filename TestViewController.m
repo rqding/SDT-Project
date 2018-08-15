@@ -40,6 +40,8 @@
     NSString *testmode;
     NSString *reactiontime;
     NSString *currentdate;
+    NSString *testtrialpath;
+    NSString *trialfileext;
     
     NSTimeInterval starttime;
     NSTimeInterval endtime;
@@ -85,6 +87,9 @@
     feedback_timelimit = [[configDict objectForKey:@"feedback_time"] doubleValue];
     fixpoint_timelimit = [[configDict objectForKey:@"fixpoint_time"] doubleValue];
     numoftest = [[configDict objectForKey:@"num_of_test"] intValue];
+    testtrialpath = [configDict objectForKey:@"test_trial_path"];
+    trialfileext = [configDict objectForKey:@"trial_file_extension"];
+    testmode = [configDict objectForKey:@"mode_selected"];
     
     //get paticipant info from paticipant table
     _databasePath = [[NSString alloc] initWithString:[docsPath stringByAppendingPathComponent:@"small.db"]];
@@ -102,7 +107,7 @@
             while(sqlite3_step(statment) == SQLITE_ROW){
                 
                 PID = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 1)];
-                testmode = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 2)];
+                //testmode = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statment, 2)];
                 
             }// end of while
             sqlite3_finalize(statment);
@@ -117,12 +122,11 @@
     //setup test type string
     if ([testmode isEqual:@"1"]) {
         //adult mode
-        testtypestring = @"S";
+        testtypestring = @"ADULT";
     } else if ([testmode isEqual:@"2"]) {
         //child mode
-        testtypestring = @"C";
+        testtypestring = @"CHILD";
     }
-    NSLog(@"test mode set as %@", testmode);
     
     //resize the image if it is child mode
     if ([testmode isEqual:@"2"]) {
@@ -146,7 +150,8 @@
 }
 
 - (void) showUIAlerWithMessage:(NSString*)message andTitle:(NSString*)title{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+    UIAlertView *alert = [
+                          [UIAlertView alloc] initWithTitle:title
                                                     message:message
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
@@ -290,23 +295,23 @@
         testid = [testtrial.trialid intValue];
         //check image name exists
         
-        NSString *imageNameYes = [NSString stringWithFormat:@"%@-item-%d-%@", testtypestring, testid, readable];
-        NSString *imageNameNo = [NSString stringWithFormat:@"%@-item-%d-%@", testtypestring, testid, unreadable];
+        NSString *yesImageName = [NSString stringWithFormat:@"%@-%d-%@.%@", testtypestring, testid, readable, trialfileext];
+        NSString *noImageName = [NSString stringWithFormat:@"%@-%d-%@.%@", testtypestring, testid, unreadable, trialfileext];
         
-        NSString *imagefileyes = [[NSBundle mainBundle] pathForResource:imageNameYes ofType:@"jpg"];
-        NSString *imagefileno = [[NSBundle mainBundle] pathForResource:imageNameNo ofType:@"jpg"];
-        if ([UIImage imageWithContentsOfFile:imagefileyes] != nil) {
+        NSString *yesImageFile = [[NSString alloc] initWithString:[testtrialpath stringByAppendingPathComponent:yesImageName]];
+        NSString *noImageFile = [[NSString alloc] initWithString:[testtrialpath stringByAppendingPathComponent:noImageName]];
+        if ([UIImage imageWithContentsOfFile:yesImageFile] != nil) {
             //setup trial information
-            testtrial.trialstring = imageNameYes;
+            testtrial.trialstring = yesImageName;
             testtrial.trialresult = readable;
             //set trial image
-            _TrialImage.image = [UIImage imageWithContentsOfFile:imagefileyes];
-        } else if ([UIImage imageWithContentsOfFile:imagefileno] != nil){
+            _TrialImage.image = [UIImage imageWithContentsOfFile:yesImageFile];
+        } else if ([UIImage imageWithContentsOfFile:noImageFile] != nil){
             //setup trial information
-            testtrial.trialstring = imageNameNo;
+            testtrial.trialstring = noImageName;
             testtrial.trialresult = unreadable;
             //set trial image
-            _TrialImage.image = [UIImage imageWithContentsOfFile:imagefileno];
+            _TrialImage.image = [UIImage imageWithContentsOfFile:noImageFile];
         } else {
             NSLog(@"Unable find item %d", testid);
         }

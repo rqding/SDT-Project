@@ -36,4 +36,6 @@
 
 - (IBAction)SelectTypeSegment:(id)sender;
 
+- (IBAction)PressExitButton:(id)sender;
+
 @end
