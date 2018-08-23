@@ -297,7 +297,7 @@
     } //end of create practice list
     
     //Create random practice trial list
-    // Select a random element between i and end of array to swap with.
+    //Select a random element between i and end of array to swap with.
     numofpractice = trialArray.count;
     NSUInteger count = numofpractice;
     for (NSUInteger i = 0; i<count; ++i) {

@@ -21,6 +21,7 @@
     NSArray *dirPath;
     NSString *modeselected;
     NSString *propertypath;
+    NSString *appversion;
     NSString *childTestTrialPath;
     NSString *adultTestTrialPath;
     NSArray *directoryContent;
@@ -62,7 +63,7 @@
     }
     // If it is the first create test trials folder show message.
     if ( firsttimefoldermessage == true ) {
-        [self showUIAlerWithMessage:@"Just create trial images folder. Please read online instruction and add test trail images to the folder" andTitle:@"Message"];
+        [self showUIAlerWithMessage:@"Just create trial images folder. Please read app support information and add test trial images to the folder" andTitle:@"Message"];
     }
     
     //create configure file
@@ -74,6 +75,7 @@
     testtrialpath = adultTestTrialPath;
     adultpraticetrials = @"plain gene skit robe bin plin gean skti vobe bni";
     childpracticetrials = @"the hte cat cta fly lyf";
+    appversion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     
     // Get the dirctory
     dirPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -85,22 +87,21 @@
     NSFileManager *configfilemgr = [NSFileManager defaultManager];
     // if not configure file not create
     if([configfilemgr fileExistsAtPath:propertypath]==NO){
-        // Set up default configuration parameters
-        NSMutableDictionary *configDict = [[NSMutableDictionary alloc] init];
-        [configDict setObject:@"2" forKey:@"time_limit"];
-        [configDict setObject:@"1.5" forKey:@"feedback_time"];
-        [configDict setObject:@"0.5" forKey:@"fixpoint_time"];
-        [configDict setObject:@"0" forKey:@"num_of_test"];
-        [configDict setObject:@"jpg" forKey:@"trial_file_extension"];
-        [configDict setObject:adultpraticetrials forKey:@"adult_practice_list"];
-        [configDict setObject:childpracticetrials forKey:@"child_practice_list"];
-        [configDict setObject:@"In this task, you job is to decide if each set of symbols you see are arranged in a readable or unreadable way. Your goal is to be accurate, but make your choice as quickly as possible before the text disappears. " forKey:@"main_intro"];
+        // Create the configure file
+        [self CreateConfigFile];
+    } else {
+        // Check if the current file has key app version
+        propertypath = [[NSString alloc] initWithString:[docsPath stringByAppendingPathComponent:@"configure.plist"]];
+        NSMutableDictionary *configDict = [NSMutableDictionary dictionaryWithContentsOfFile:propertypath];
+        if ([configDict objectForKey:@"key"] == nil)
+            [self CreateConfigFile];
+        else {
+            // if the app version is the lastest version
+            NSString *current_version = [configDict objectForKey:@"app_version"];
+            if (current_version != appversion)
+                [self CreateConfigFile];
+        }
         
-        [configDict setObject:@"To get used to the task, you will start with a practice round in English. The symbols will be letters of the alphabet. You will decide if the letters are arranged in a way that is readable or unreadable." forKey:@"first_practice_intro"];
-        
-        [configDict setObject:@"In this TEST round, you will see symbols from the language of mathematics. Remember, your job is to decide if each set of symbols you see are arranged in a way that is readable or unreadable. " forKey:@"adult_test_intro"];
-        
-        [configDict writeToFile:propertypath atomically:YES];
     }
     
     /* Create two database.
@@ -289,6 +290,27 @@
         if (buttonIndex ==1)
             exit(0);
     }
+}
+
+-(void) CreateConfigFile {
+    
+    NSMutableDictionary *configDict = [[NSMutableDictionary alloc] init];
+    [configDict setObject:appversion forKey:@"app_version"];
+    [configDict setObject:@"2" forKey:@"time_limit"];
+    [configDict setObject:@"1.5" forKey:@"feedback_time"];
+    [configDict setObject:@"0.5" forKey:@"fixpoint_time"];
+    [configDict setObject:@"0" forKey:@"num_of_test"];
+    [configDict setObject:@"jpg" forKey:@"trial_file_extension"];
+    [configDict setObject:adultpraticetrials forKey:@"adult_practice_list"];
+    [configDict setObject:childpracticetrials forKey:@"child_practice_list"];
+    [configDict setObject:@"In this task, you job is to decide if each set of symbols you see are arranged in a readable or unreadable way. Your goal is to be accurate, but make your choice as quickly as possible before the text disappears. " forKey:@"main_intro"];
+    
+    [configDict setObject:@"To get used to the task, you will start with a practice round in English. The symbols will be letters of the alphabet. You will decide if the letters are arranged in a way that is readable or unreadable." forKey:@"first_practice_intro"];
+    
+    [configDict setObject:@"In this TEST round, you will see symbols from the language of mathematics. Remember, your job is to decide if each set of symbols you see are arranged in a way that is readable or unreadable. " forKey:@"adult_test_intro"];
+    
+    [configDict writeToFile:propertypath atomically:YES];
+    
 }
 
 - (void)UpdateNumOfTestConfig:(NSUInteger)numoftest {
