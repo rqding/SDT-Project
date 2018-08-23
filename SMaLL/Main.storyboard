@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSA-ZG-T8i">
@@ -204,7 +204,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Nbm-jB-Urn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="toi-04-vbW">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apc-cU-dZf">
@@ -348,7 +348,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Pir-el-zP6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zHc-YY-DY0">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7a-VJ-0aC">
@@ -499,7 +499,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KUa-Ar-KgB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dTC-Ic-JkT">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5p-9U-uMl">
@@ -527,7 +527,7 @@
                                     <constraint firstAttribute="height" constant="98" id="Bn7-eu-JJm"/>
                                     <constraint firstAttribute="width" constant="748" id="Osn-HP-PN9"/>
                                 </constraints>
-                                <string key="text">To practice, our symbols are going to be letters. You are going to look at some letters and decide if they are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!  </string>
+                                <string key="text">To practice, you are going to look at some symbols. You are going to look at some letters and decide if they are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!  </string>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -703,7 +703,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sX7-1c-UPC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dyK-FL-y8Y">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHp-8H-B71">
@@ -974,7 +974,7 @@ For the practice round, the task will follow this pattern:
                         <viewControllerLayoutGuide type="bottom" id="PBv-Hh-qht"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bVS-NC-gAT">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwz-ah-oWy">
@@ -1211,7 +1211,7 @@ To get ready for the task…
                         <viewControllerLayoutGuide type="bottom" id="lVT-pq-5al"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jh2-Zl-bbo">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-YH-4Nt">
@@ -1243,7 +1243,7 @@ To get ready for the task…
                                     <action selector="PressNoButton:" destination="1Sg-MI-vxL" eventType="touchUpInside" id="Bdk-Vy-65b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vm2-SC-6Kd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vm2-SC-6Kd">
                                 <rect key="frame" x="412" y="284" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="TrR-SJ-KTR"/>
@@ -1253,7 +1253,7 @@ To get ready for the task…
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rng-k5-aJ8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rng-k5-aJ8">
                                 <rect key="frame" x="497" y="359" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="POi-xA-8Sw"/>
@@ -1263,7 +1263,7 @@ To get ready for the task…
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8B-63-r4a">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8B-63-r4a">
                                 <rect key="frame" x="447" y="419" width="130" height="65"/>
                                 <color key="backgroundColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1296,14 +1296,14 @@ To get ready for the task…
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="smilleface" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-cq-o4t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smilleface" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-cq-o4t">
                                 <rect key="frame" x="437" y="309" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="arw-e4-SWO"/>
                                     <constraint firstAttribute="height" constant="150" id="qaq-zm-vkp"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thinkingface" translatesAutoresizingMaskIntoConstraints="NO" id="6ve-yp-DsS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thinkingface" translatesAutoresizingMaskIntoConstraints="NO" id="6ve-yp-DsS">
                                 <rect key="frame" x="437" y="309" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="cKt-v0-k62"/>
@@ -1331,7 +1331,7 @@ To get ready for the task…
                                     <action selector="PressYesButton:" destination="1Sg-MI-vxL" eventType="touchUpInside" id="up9-gh-RZ0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-HB-NR9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-HB-NR9">
                                 <rect key="frame" x="312" y="306.5" width="400" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="F83-5n-qo7"/>
@@ -1414,7 +1414,7 @@ To get ready for the task…
                         <viewControllerLayoutGuide type="bottom" id="aaW-Fi-Wfl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d6r-2t-gyE">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNj-J2-ulJ">
@@ -1517,7 +1517,7 @@ To get ready for the task…
                                     <constraint firstAttribute="height" constant="88" id="Abp-Jt-QIX"/>
                                     <constraint firstAttribute="width" constant="753" id="Ghu-Ph-tza"/>
                                 </constraints>
-                                <string key="text">Now you’re ready to look at some math symbols.                                                          Your job is to decide if the math symbols are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!</string>
+                                <string key="text">Now you're ready to get started.                                                                                     Your job is to decide if the math symbols are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!</string>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1567,7 +1567,7 @@ To get ready for the task…
                         <viewControllerLayoutGuide type="bottom" id="LhV-l9-6fs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1zV-iO-Yo5">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5I-En-bGt">
@@ -1832,7 +1832,7 @@ To get ready for the task…
                         <viewControllerLayoutGuide type="bottom" id="8zd-vc-IxQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rHg-Na-Ceu">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0e8-gA-Lb0">
@@ -1976,7 +1976,7 @@ To get ready for the task…
                         <viewControllerLayoutGuide type="bottom" id="uTZ-Lb-1FH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="P4C-kp-fAB">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Wl-h5-LQg">
@@ -2208,7 +2208,7 @@ To get ready for the task…</string>
                         <viewControllerLayoutGuide type="bottom" id="fbK-c0-Kzv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bP-24-voe">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZD5-cj-o5U">
@@ -2251,7 +2251,7 @@ To get ready for the task…</string>
                                     <action selector="PressNoButton:" destination="3Sw-0i-yFH" eventType="touchUpInside" id="1Cw-xe-zR3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-ES-D7X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-ES-D7X">
                                 <rect key="frame" x="497" y="359" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Bjb-0f-gh3"/>
@@ -2261,7 +2261,7 @@ To get ready for the task…</string>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GJ-b4-nQ6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GJ-b4-nQ6">
                                 <rect key="frame" x="447" y="494" width="130" height="65"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -2284,7 +2284,7 @@ To get ready for the task…</string>
                                     <action selector="PressExitButton:" destination="3Sw-0i-yFH" eventType="touchUpInside" id="Kaj-w3-Wxr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-Go-3rY">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vM8-Go-3rY">
                                 <rect key="frame" x="447" y="494" width="130" height="65"/>
                                 <color key="backgroundColor" red="0.80780460860000003" green="0.80780460860000003" blue="0.80780460860000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -2307,7 +2307,7 @@ To get ready for the task…</string>
                                     <action selector="PressFinishButton:" destination="3Sw-0i-yFH" eventType="touchUpInside" id="GAG-wX-8ze"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-dM-0wW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rzt-dM-0wW">
                                 <rect key="frame" x="337" y="209" width="350" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="VOV-6E-ujy"/>
