@@ -527,7 +527,7 @@
                                     <constraint firstAttribute="height" constant="98" id="Bn7-eu-JJm"/>
                                     <constraint firstAttribute="width" constant="748" id="Osn-HP-PN9"/>
                                 </constraints>
-                                <string key="text">To practice, you are going to look at some symbols. You are going to look at some letters and decide if they are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!  </string>
+                                <string key="text">To practice, you are going to look at some symbols if they are arranged in a readable or unreadable way. Be as QUICK and as ACCURATE as you can!  </string>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
